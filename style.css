@@ -1,0 +1,12 @@
+:root {
+    --primary-color: #000;
+    --secondary-color: #000;
+    --tertiary-color: #000;
+    --quaternary-color: #000;
+    --quinary-color: #000;
+    --senary-color: #000;
+}
+
+body {
+    margin: 0;
+}
