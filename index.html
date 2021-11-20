@@ -22,14 +22,30 @@
   <meta property="og:description" content=""/>
   <meta name="theme-color" content="#9ab4f8"/>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div class="splash">
+    <div class="modal-background" id="modal">
+      <div class="modal">
+        <div class="modal-content">
+          <div class="modal-title">
+            <h1 class="modal-header">
+              I'm genderfluid.
+            </h1>
+            <span class="modal-close material-icons" onclick="triggerModal()">close</span>
+          </div>
+          <p class="modal-desc">
+            Genderfluid is a gender identity which refers to a gender which varies over time. A genderfluid person's identity may change constantly, so it's always best to ask what they are in that moment. However, I'm Demifluid, which is a form of genderfluidity in which my gender changes between <a href="https://gender.wikia.org/wiki/Agender">Agender</a>, <a href="https://gender.wikia.org/wiki/Demiboy">Demiboy</a>, <a href="https://gender.wikia.org/wiki/Demigirl">Demigirl</a>, and <a href="https://gender.wikia.org/wiki/Demigender">Demibigender</a>, meaning no matter how I identify, I'll always use they/cae. I also accept he/they while I'm a Demiboy, fey/they/she when I'm a Demigirl, and he/fey/they/cae/she while I'm Demibigender.
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="sona"></div>
     <div class="content">
       <h1 class="header">Hey, I'm <span id="name">August</span>!</h1>
       <h2 class="small">
-        <span class="chip chip-link me-1">They/Cae (unless specified)</span> Asexual Pandemiromantic • Minor • Artist </h2>
+        <span class="chip chip-link me-1" onclick="triggerModal()">They/Cae (unless specified)</span> Asexual Pandemiromantic • Minor • Artist </h2>
       <p class="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi euismod nunc vel felis lacinia posuere. Nunc ac nisl enim. In vulputate nisl nisl, vestibulum lacinia lectus porttitor sit amet. Donec congue porttitor magna, in ultricies orci convallis eu. Morbi interdum libero at placerat efficitur. Etiam nec mi neque. Nunc sodales tristique bibendum. Mauris odio lectus, tincidunt nec nisl vel, blandit egestas nibh. Donec dapibus eget massa porta euismod. Praesent mattis mi neque, a tincidunt mi blandit sed. Maecenas ullamcorper nisl rhoncus ligula malesuada, suscipit suscipit velit luctus.
       </p>

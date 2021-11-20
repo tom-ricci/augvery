@@ -5,8 +5,8 @@
     --secondary-color: #FEAF58;
     --tertiary-color: #F8F8FF;
     --quaternary-color: #717171;
-    --quinary-color: #000;
-    --senary-color: #000;
+    --quinary-color: rgba(0, 0, 0, 0.45);
+    --senary-color: #e29746;
 }
 
 body {
@@ -48,8 +48,9 @@ body {
     display: inline;
 }
 
-.chip-link:hover {
-    box-shadow: 0 3px 0.5rem 3px rgba(0, 0, 0, 0.51);
+.chip-link:hover, .chip-link:active, .chip-link:focus {
+    box-shadow: 0 3px 0.5rem 3px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
 }
 
 .me-1 {
@@ -87,10 +88,80 @@ body {
     margin: 1rem 1rem 1rem 1rem;
 }
 
+.modal-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: 2;
+    background-color: var(--quinary-color);
+}
+
+.modal {
+    border-radius: 2rem;
+    width: min(90%, 750px);
+    z-index: 3;
+    box-shadow: 0 3px 0.5rem 3px rgba(0, 0, 0, 0.24);
+    background-color: var(--primary-color);
+}
+
+.modal-content {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.modal-title {
+    display: flex;
+}
+
+.modal-header {
+    flex-grow: 1;
+    margin: 0.2rem 0 0 0;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.modal-close {
+    margin: 0;
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+a:hover, a:active, a:focus {
+    color: var(--senary-color);
+}
+
+.modal-close:hover, .modal-close:focus, .modal-close:active {
+    background-color: rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+}
+
+.modal-desc {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: clamp(0.9rem, 5vw, 1.3rem);
+}
+
 @media screen and (max-width: 900px) {
     .sona {
         background-position: center;
         height: 60rem;
         width: 30rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .modal {
+        height: 90vw;
     }
 }
