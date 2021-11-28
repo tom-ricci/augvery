@@ -1,29 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Poppins:wght@300&display=swap');
 
 :root {
-    --primary-color: #28485B;
-    --secondary-color: #FEAF58;
+    --primary-color: #4593dc;
+    --secondary-color: #efa10e;
     --tertiary-color: #F8F8FF;
-    --quaternary-color: #717171;
+    --quaternary-color: #24337c;
     --quinary-color: rgba(0, 0, 0, 0.45);
-    --senary-color: #e29746;
+    --senary-color: #632490;
+    --septenary-color: #d28c07;
 }
 
 body {
     margin: 0;
     background-color: var(--primary-color);
     overflow-x: hidden !important;
+    position: relative;
 }
 
 .sona {
     position: absolute;
     right: 0;
     top: 0;
-    background-image: url("sona.png");
     height: 60rem;
     width: 60rem;
-    background-position: right;
-    z-index: 0;
+    z-index: 1;
+}
+
+.sona-img {
+    opacity: 0;
+    transition: opacity 0.5s;
+    background: url("sona.png") right;
+    width: 100%;
+    height: 100%;
+}
+
+.sona-img-fade-in {
+    opacity: 1;
 }
 
 .splash {
@@ -41,10 +53,26 @@ body {
     color: var(--tertiary-color);
 }
 
+.bg {
+    position: sticky;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+}
+
+.bg-img {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.5) translateX(25px) translateY(-60px);
+}
+
 .chip {
     border-radius: 500px;
     padding: 0.2rem 0.6rem 0.2rem 0.6rem;
-    background-color: var(--quaternary-color);
+    background-color: var(--secondary-color);
     display: inline;
 }
 
@@ -60,7 +88,10 @@ body {
 .content {
     padding: 1rem 2rem 1rem 2rem;
     max-width: 700px;
-    z-index: 1;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .header {
@@ -98,14 +129,14 @@ body {
     justify-content: center;
     overflow-x: hidden;
     overflow-y: hidden;
-    z-index: 2;
+    z-index: 3;
     background-color: var(--quinary-color);
 }
 
 .modal {
     border-radius: 2rem;
     width: min(90%, 750px);
-    z-index: 3;
+    z-index: 4;
     box-shadow: 0 3px 0.5rem 3px rgba(0, 0, 0, 0.24);
     background-color: var(--primary-color);
 }
@@ -126,6 +157,14 @@ body {
 
 }
 
+.meta {
+    display: inline-block;
+}
+
+.invisible {
+    opacity: 0 !important;
+}
+
 .modal-close {
     margin: 0;
     border-radius: 100%;
@@ -139,7 +178,7 @@ a {
 }
 
 a:hover, a:active, a:focus {
-    color: var(--senary-color);
+    color: var(--septenary-color);
 }
 
 .modal-close:hover, .modal-close:focus, .modal-close:active {
@@ -150,6 +189,48 @@ a:hover, a:active, a:focus {
 .modal-desc {
     font-family: "Nunito Sans", sans-serif;
     font-size: clamp(0.9rem, 5vw, 1.3rem);
+}
+
+.piece {
+    padding: 1rem 1rem 0 1rem;
+    background-color: var(--primary-color);
+    box-shadow: 0 3px 1rem 3px rgba(0, 0, 0, 0.24);
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.piece-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.piece-title {
+    margin: 1rem 0 0 0;
+}
+
+.piece-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.piece-imgs {
+    display: flex;
+    flex-direction: column;
+}
+
+.piece-img {
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    aspect-ratio: 16/9;
+    transition: opacity 0.5s linear;
+}
+
+.piece-img-loaded {
+    opacity: 1;
 }
 
 @media screen and (max-width: 900px) {
