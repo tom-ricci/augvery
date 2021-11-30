@@ -1,6 +1,5 @@
 const names = [ "August", "Avery", "Lav" ];
 let count = 0;
-let modal = false;
 
 const updateName = () => {
   setTimeout(() => {
@@ -10,14 +9,15 @@ const updateName = () => {
   }, 2000);
 }
 
-const triggerModal = () => {
-  modal = !modal;
-  console.log(modal);
-  if(modal) {
-    document.getElementById("modal").style.display = "flex";
-  }else{
-    document.getElementById("modal").style.display = "none";
-  }
+const closeModal = () => {
+  document.getElementById("modal").style.display = "none";
+  document.getElementById("modal-title").innerHTML = "";
+  document.getElementById("modal-desc").innerHTML = "";
+}
+
+const loadDemifluidModal = () => {
+  document.getElementById("modal-title").innerHTML = "I'm demifluid.";
+  document.getElementById("modal-desc").innerHTML = "Demifluid is a gender under the umbrella of genderfluidity, an identity in which a person's gender may change constantly. Being Demifluid, I have a static gender and one that is fluid. Because my static gender is Agender, my gender changes between <a href=\"https://gender.wikia.org/wiki/Agender\">Agender</a>, <a href=\"https://gender.wikia.org/wiki/Demiboy\">Demiboy</a>, <a href=\"https://gender.wikia.org/wiki/Demigirl\">Demigirl</a>, and <a href=\"https://gender.wikia.org/wiki/Demigender\">Demibigender</a>. No matter how I identify, I'll always accept my Agender pronouns, they/cae. I also accept he/they while I'm a Demiboy, fey/they/she when I'm a Demigirl, and he/fey/they/cae/she while I'm Demibigender.";
 }
 
 const introSequence = () => {
