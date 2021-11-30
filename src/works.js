@@ -53,7 +53,7 @@ const renderOtherImgs = (imgs) => {
 }
 
 const getArt = async () => {
-  return await fetch("https://augvery.pages.dev/cdn/index.json").then(res => res.json());
+  return await fetch("./cdn/index.json").then(res => res.json());
 }
 
 root.addEventListener("renderart", async () => {
