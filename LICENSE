@@ -1,9 +1,11 @@
 Modified Unlicense
-Version 1, EPOCH 1638216604340
+Version 2, EPOCH 1638247497923
 
 1. Definitions
 
-   "Software" shall mean any and all data listed under the ./src/ directory.
+   "Source" shall mean the undeployed versions of all data inside of or copied from this repository.
+
+   "Software" shall mean any and all data listed under the ./src/ directory in the Source.
 
    "License" shall mean the terms and conditions for use, reproduction,
    and distribution as defined by Section 3 of this document.
