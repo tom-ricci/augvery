@@ -4,8 +4,10 @@ const root = document.getElementById("root");
 
 const loadPiece = (art, index) => {
   setTimeout(() => {
+    console.log("load");
     if(art.length > index) {
       const piece = art[index];
+      console.log(piece);
       const source =
         `
 <div class="piece body animate__animated animate__fadeInLeft">
@@ -22,32 +24,39 @@ const loadPiece = (art, index) => {
     <div>
       
     </div>
-    <img src="${piece.imageUrls[0]}" onload="fadeInImage(this)" alt="Image not found!" class="piece-img"/>
-    ${renderOtherImgs()}
+    <img src="${(piece.imageUrls[0])[0]}" onload="fadeInImage(this)" alt="Image not found!" class="piece-img" style="aspect-ratio: ${(piece.imageUrls[0])[1].split("x")[0]}/${(piece.imageUrls[0])[1].split("x")[1]};"/>
+    ${renderOtherImgs(piece.imageUrls)}
   </div>
 </div>
 `
       const html = document.createRange().createContextualFragment(source);
+      console.log(html);
       root.appendChild(html);
       document.getElementById(`piece-${index}-button`).addEventListener("click", (event) => {
+        document.getElementById("modal").style.opacity = "0";
         document.getElementById("modal-title").innerHTML = document.getElementById(`piece-${event.target.id.split("-")[1]}-title`).innerHTML;
         document.getElementById("modal-desc").innerHTML = document.getElementById(`piece-${event.target.id.split("-")[1]}-desc`).innerHTML;
         document.getElementById("modal-imgs").innerHTML = document.getElementById(`piece-${event.target.id.split("-")[1]}-imgs`).innerHTML;
         for(const child of document.getElementById("modal-imgs").children) {
           child.classList.remove("dn");
+          child.classList.add("piece-img-loaded");
         }
         document.getElementById("modal").style.display = "flex";
-      })
-      loadPiece(index + 1);
+        setTimeout(() => {
+          document.getElementById("modal").style.opacity = "1";
+        }, 20);
+      });
+      loadPiece(art, index + 1);
     }
   }, 500);
 }
 
 const renderOtherImgs = (imgs) => {
   let output = "\n";
-  imgs.shift()
+  imgs.shift();
   for(const img of imgs) {
-    output += `<img src="${img}" alt="Image not found!" class="piece-img dn"/>\n`;
+    console.log(`aspect-ratio: ${img[1].split("x")[0]}/${img[1].split("x")[1]};`);
+    output += `<img src="${img[0]}" alt="Image not found!" class="piece-img dn" style="aspect-ratio: ${img[1].split("x")[0]}/${img[1].split("x")[1]};"/>\n`;
   }
   return output;
 }
@@ -57,6 +66,7 @@ const getArt = async () => {
 }
 
 root.addEventListener("renderart", async () => {
-  const art = await getArt();
+  const { art } = await getArt();
+  console.log(art);
   loadPiece(art, 0);
 });

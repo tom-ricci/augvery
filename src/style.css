@@ -86,8 +86,7 @@ body {
 }
 
 .content {
-    padding: 1rem 2rem 1rem 2rem;
-    max-width: 700px;
+    max-width: min(100%, 700px);
     z-index: 2;
     position: absolute;
     top: 0;
@@ -135,15 +134,26 @@ body {
 
 .modal {
     border-radius: 2rem;
-    width: min(90%, 750px);
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: 500px;
+    max-width: min(100%, 750px);
     z-index: 4;
     box-shadow: 0 3px 0.5rem 3px rgba(0, 0, 0, 0.24);
     background-color: var(--primary-color);
 }
 
-.modal-content {
-    padding: 2rem;
-    overflow-y: auto;
+.modal-background {
+    transition: opacity 0.07s linear;
+}
+
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
+.modal {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .modal-title {
@@ -154,7 +164,21 @@ body {
     flex-grow: 1;
     margin: 0.2rem 0 0 0;
     font-family: "Poppins", sans-serif;
+}
 
+.modal-title {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.modal-desc {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.modal-imgs {
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .modal-imgs {
@@ -235,7 +259,7 @@ a:hover, a:active, a:focus {
     background-color: var(--primary-color);
     box-shadow: 0 3px 1rem 3px rgba(0, 0, 0, 0.24);
     border-radius: 1rem;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .piece-meta {
@@ -260,6 +284,7 @@ a:hover, a:active, a:focus {
 .piece-imgs {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .piece-img {
@@ -267,8 +292,11 @@ a:hover, a:active, a:focus {
     border-radius: 1rem;
     margin-bottom: 1rem;
     opacity: 0;
-    aspect-ratio: 16/9;
     transition: opacity 0.5s linear;
+}
+
+.piece-img:last-child {
+    margin-bottom: 0;
 }
 
 .piece-flex {
@@ -282,14 +310,21 @@ a:hover, a:active, a:focus {
 
 @media screen and (max-width: 900px) {
     .sona {
-        background-position: center;
-        height: 60rem;
-        width: 30rem;
+        display: none;
     }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (min-width: 750px) {
+    .content {
+        padding: 16px 24px 16px 24px;
+    }
+}
+
+@media screen and (max-width: 850px) {
     .modal {
-        height: 90vw;
+        height: 100vh;
+        max-height: 100vh;
+        width: 100%;
+        max-width: 100%;
     }
 }
