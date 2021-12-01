@@ -313,7 +313,7 @@ a:hover, a:active, a:focus {
     opacity: 1;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
     .sona {
         display: none;
     }
@@ -325,7 +325,7 @@ a:hover, a:active, a:focus {
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 850px), screen and (max-height: 430px) {
     .modal {
         height: 100vh;
         max-height: 100vh;

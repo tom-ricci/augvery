@@ -7,11 +7,14 @@ document.getElementById("modal").addEventListener("transitionend", () => {
   }
 });
 
-// document.getElementById("modal").addEventListener("transitionstart", () => {
-//   if(document.getElementById("modal").style.opacity === "1") {
-//     document.getElementById("modal").style.display = "flex";
-//   }
-// });
+document.getElementById("page").addEventListener("scroll", () => {
+  let scroll = Math.floor(document.getElementById("page").scrollTop);
+  scroll = scroll < 0 ? 0 : scroll;
+  scroll = scroll > 400 ? 400 : scroll;
+  document.getElementById("sona").style.top = `${(scroll * 1.5).toString()}px`;
+  scroll = 1 - scroll / 400;
+  document.getElementById("sona").style.opacity = scroll.toString();
+});
 
 const updateName = () => {
   setTimeout(() => {

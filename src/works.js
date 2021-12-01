@@ -4,10 +4,8 @@ const root = document.getElementById("root");
 
 const loadPiece = (art, index) => {
   setTimeout(() => {
-    console.log("load");
     if(art.length > index) {
       const piece = art[index];
-      console.log(piece);
       const source =
         `
 <div class="piece body animate__animated animate__fadeInLeft">
@@ -30,7 +28,6 @@ const loadPiece = (art, index) => {
 </div>
 `
       const html = document.createRange().createContextualFragment(source);
-      console.log(html);
       root.appendChild(html);
       document.getElementById(`piece-${index}-button`).addEventListener("click", (event) => {
         document.getElementById("modal").style.opacity = "0";
@@ -55,7 +52,6 @@ const renderOtherImgs = (imgs) => {
   let output = "\n";
   imgs.shift();
   for(const img of imgs) {
-    console.log(`aspect-ratio: ${img[1].split("x")[0]}/${img[1].split("x")[1]};`);
     output += `<img src="${img[0]}" alt="Image not found!" class="piece-img dn" style="aspect-ratio: ${img[1].split("x")[0]}/${img[1].split("x")[1]};"/>\n`;
   }
   return output;
@@ -67,6 +63,5 @@ const getArt = async () => {
 
 root.addEventListener("renderart", async () => {
   const { art } = await getArt();
-  console.log(art);
   loadPiece(art, 0);
 });
