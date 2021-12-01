@@ -1,4 +1,3 @@
-// const names = [ "August", "Avery", "Lav" ];
 let count = 0;
 
 document.getElementById("modal").addEventListener("transitionend", () => {
@@ -15,14 +14,6 @@ document.getElementById("page").addEventListener("scroll", () => {
   scroll = 1 - scroll / 400;
   document.getElementById("sona").style.opacity = scroll.toString();
 });
-
-// const updateName = () => {
-//   setTimeout(() => {
-//     count = count < 2 ? count + 1 : 0;
-//     document.getElementById("name").innerText = names[count];
-//     updateName();
-//   }, 2000);
-// }
 
 const closeModal = () => {
   document.getElementById("modal").style.opacity = "0";
@@ -76,4 +67,3 @@ const fadeInImage = (img) => {
 }
 
 introSequence();
-// updateName();
