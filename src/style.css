@@ -202,6 +202,7 @@ body {
     margin: 0;
     border-radius: 100%;
     padding: 1rem;
+    transition: background-color 0.15s;
 }
 
 .modal-close-container {
@@ -243,6 +244,7 @@ a {
     cursor: pointer;
     text-decoration: none;
     color: var(--secondary-color);
+    transition: color 0.2s;
 }
 
 a:hover, a:active, a:focus {
